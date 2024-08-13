@@ -20,10 +20,10 @@ export default function Login() {
     setLoading(true);
     setError("");
     try {
-      const url = "http://localhost:8080/api/auth/login"; // Ensure this URL is correct
+      const url = `${process.env.BACKEND_URL}/api/auth/login`; 
       const { data: res } = await axios.post(url, data);
 
-      localStorage.setItem("token", res.data); // Assuming res.data is the token
+      localStorage.setItem("token", res.data); 
 navigate("/dashboard")
     } catch (error) {
       if (
